@@ -38,6 +38,14 @@ public class CacheConfiguration {
             cm.createCache(io.github.jhipster.application.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.TextApp.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.FileApp.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.FileApp.class.getName() + ".folders", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.News.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Folder.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Folder.class.getName() + ".folders", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Folder.class.getName() + ".files", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.File.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
