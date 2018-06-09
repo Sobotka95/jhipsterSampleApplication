@@ -1,0 +1,41 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "fileApp",
+            "otherEntityName": "fileApp",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "folder",
+            "otherEntityName": "folder",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "folders",
+            "otherEntityName": "folder",
+            "otherEntityRelationshipName": "folder"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "files",
+            "otherEntityName": "file",
+            "otherEntityRelationshipName": "folder"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180609103227",
+    "entityTableName": "folder",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

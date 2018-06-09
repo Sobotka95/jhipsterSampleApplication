@@ -1,0 +1,40 @@
+
+entity TextApp {
+	id Integer
+	title String
+	content String
+}
+
+entity FileApp {
+	id Integer
+    title String
+}
+
+entity News {
+	id Integer
+    title String
+    content String
+}
+
+entity Folder {
+	id Integer
+    name String
+}
+
+entity File {
+	id Integer
+    name String
+    ext String
+}
+
+relationship OneToMany {
+	FileApp{folders} to Folder
+}
+
+relationship OneToMany {
+	Folder{folders} to Folder
+}
+
+relationship OneToMany {
+	Folder{files} to File
+}

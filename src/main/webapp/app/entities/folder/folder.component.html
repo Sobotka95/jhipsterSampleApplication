@@ -1,0 +1,70 @@
+<div>
+    <h2>
+        <span>Folders</span>
+        <button class="btn btn-primary float-right jh-create-entity create-folder" [routerLink]="['/', { outlets: { popup: ['folder-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Folder
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="folders">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>File App</span></th>
+            <th><span>Folder</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let folder of folders ;trackBy: trackId">
+                <td><a [routerLink]="['../folder', folder.id ]">{{folder.id}}</a></td>
+                <td>{{folder.name}}</td>
+                <td>
+                    <div *ngIf="folder.fileApp">
+                        <a [routerLink]="['../file-app', folder.fileApp?.id ]" >{{folder.fileApp?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="folder.folder">
+                        <a [routerLink]="['../folder', folder.folder?.id ]" >{{folder.folder?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../folder', folder.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'folder/'+ folder.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'folder/'+ folder.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+
+<div *ngIf="folder">
+    <h2><span>Folder</span> {{folder.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{folder.name}}</span>
+        </dd>
+        <dt><span>File App</span></dt>
+        <dd>
+            <div *ngIf="folder.fileApp">
+                <a [routerLink]="['/file-app', folder.fileApp?.id]">{{folder.fileApp?.id}}</a>
+            </div>
+        </dd>
+        <dt><span>Folder</span></dt>
+        <dd>
+            <div *ngIf="folder.folder">
+                <a [routerLink]="['/folder', folder.folder?.id]">{{folder.folder?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'folder/'+ folder.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
